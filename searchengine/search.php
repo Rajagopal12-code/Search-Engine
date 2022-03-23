@@ -92,19 +92,19 @@ include("classes/ImageResultsProvider.php");
                     <img src="assets/images/pageStart.png">
                 </div>
                 <?php
-                $pagesToShow = 10; // số page hiển thị tối đa
-                $pageSize = 20; //số bài trên trang
+                $pagesToShow = 10; 
+                $pageSize = 20; 
 				$numResults = substr($numResults, 0, strpos($numResults, ' '));
-                $numPages = ceil($numResults / $pageSize); // số trang bằng làm tròn số ( số bài viết chia co số bài trên trang )
-                $pageLefts = min($pagesToShow, $numPages); //số trang còn lại bằng số nhỏ nhất giữa pha để hiển thị và số trang
-                $currentPage = $page - floor( $pagesToShow / 2 ); //trang hiện tại bằng $page get trừ cho làm tròn số xuống ( page hiển thị chia 2 )
-                if($currentPage < 1){ //nếu page hiện tai nhỏ hơn 1 thì set page hiện tại bằng 1
+                $numPages = ceil($numResults / $pageSize); 
+                $pageLefts = min($pagesToShow, $numPages);
+                $currentPage = $page - floor( $pagesToShow / 2 ); 
+                if($currentPage < 1){ 
                     $currentPage = 1;
                 }
-                if($currentPage + $pageLefts > $numPages + 1) { // nếu page hiện tại cộng với số trang còn lại nhỏ hơn tổng số trang cộng 1
-                    $currentPage = $numPages + 1 - $pageLefts; // thì số trang hiện tại bằng tổng số trang + 1 - số trang còn lại
+                if($currentPage + $pageLefts > $numPages + 1) { 
+                    $currentPage = $numPages + 1 - $pageLefts; 
                 }
-                while($pageLefts != 0 && $currentPage <= $numPages) { // nếu số trang còn lại ko bằng 0 và số trang hiện tại nhỏ hơn hoặc bằng tổng số trang
+                while($pageLefts != 0 && $currentPage <= $numPages) { 
                     if($currentPage == $page){
                         echo "<div class='pageNumberContainer'>
                             <img src='assets/images/pageSelected.png'>
